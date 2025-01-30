@@ -1,5 +1,5 @@
 // Interface Teacher   // --- Task 2 ---
-interface Teacher {
+export interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
     fullTimeEmployee: boolean;
@@ -9,7 +9,7 @@ interface Teacher {
   }
   
   // Interface Directors qui étend Teacher
-  interface Directors extends Teacher {
+  export interface Directors extends Teacher {
     numberOfReports: number; // Propriété spécifique aux Directeurs
   }
   
@@ -28,14 +28,9 @@ interface Teacher {
   
 
   // Interface pour la fonction printTeacher
-interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
-  }
-  
-  // Implémentation de la fonction printTeacher
-  const printTeacher: printTeacherFunction = (firstName, lastName) => {
+export function printTeacher(firstName: string, lastName: string): string {
     return `${firstName.charAt(0)}. ${lastName}`;
-  };
+  }
   
   // Test de la fonction
   console.log(printTeacher("John", "Doe")); // J. Doe
@@ -44,12 +39,12 @@ interface printTeacherFunction {
   // --- Task 4 ---
 
   // Interface pour le constructeur
-interface StudentConstructor {
+export interface StudentConstructor {
     new (firstName: string, lastName: string): StudentInterface;
   }
   
   // Interface pour la classe StudentClass
-  interface StudentInterface {
+  export interface StudentInterface {
     workOnHomework(): string;
     displayName(): string;
   }
